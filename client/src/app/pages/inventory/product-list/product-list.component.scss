@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 table {
   width: 100%;
@@ -7,6 +7,7 @@ table {
 }
 
 .mat-row:hover {
+  cursor: pointer;
   background-color: $main-color;
   color: $light-text-color;
 }
