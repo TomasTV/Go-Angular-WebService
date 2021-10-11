@@ -36,48 +36,48 @@ export class ReceiptsComponent implements OnInit {
   }
 
   uploadReceipt(file: any) {
-    // const formData = new FormData();
-    // formData.append('receipt', file);
-    // file.inProgress = true;
-    // this.receiptsService
-    //   .upload(formData)
-    //   .pipe(
-    //     map((event) => {
-    //       switch (event.type) {
-    //         case HttpEventType.Response:
-    //           return event;
-    //       }
-    //     }),
-    //     catchError((error: HttpErrorResponse) => {
-    //       file.inProgress = false;
-    //       return of(`${file.name} upload failed.`);
-    //     })
-    //   )
-    //   .subscribe((event: any) => {
-    //     if (typeof event === 'object') {
-    //       console.log(event.body);
-    //     }
-    //     this.loadReceiptData();
-    //   });
+    const formData = new FormData();
+    formData.append('receipt', file);
+    file.inProgress = true;
+    this.receiptsService
+      .upload(formData)
+      .pipe(
+        map((event): any => {
+          switch (event.type) {
+            case HttpEventType.Response:
+              return event;
+          }
+        }),
+        catchError((error: HttpErrorResponse) => {
+          file.inProgress = false;
+          return of(`${file.name} upload failed.`);
+        })
+      )
+      .subscribe((event: any) => {
+        if (typeof event === 'object') {
+          console.log(event.body);
+        }
+        this.loadReceiptData();
+      });
   }
 
   sortData(sort: Sort) {
-    // const data = this.receipts.slice();
-    // if (!sort.active || sort.direction === '') {
-    //   this.sortedData = data;
-    //   return;
-    // }
-    // this.sortedData = data.sort((a, b) => {
-    //   const isAsc = sort.direction === 'asc';
-    //   switch (sort.active) {
-    //     case 'name':
-    //       return compare(a.name, b.name, isAsc);
-    //     case 'uploadDate':
-    //       return compare(a.uploadDate, b.uploadDate, isAsc);
-    //     default:
-    //       return 0;
-    //   }
-    // });
+    const data = this.receipts.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+    this.sortedData = data.sort((a: any, b: any) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'name':
+          return compare(a.name, b.name, isAsc);
+        case 'uploadDate':
+          return compare(a.uploadDate, b.uploadDate, isAsc);
+        default:
+          return 0;
+      }
+    });
   }
 
   getDownloadUrl(name: string): string {
@@ -91,13 +91,13 @@ export class ReceiptsComponent implements OnInit {
   }
 
   loadReceiptData(): void {
-    // this.receiptsService.getReceipts().subscribe({
-    //   next: (receipts) => {
-    //     this.receipts = receipts;
-    //     this.sortedData = receipts;
-    //   },
-    //   error: (err) => (this.errMsg = err),
-    // });
+    this.receiptsService.getReceipts().subscribe({
+      next: (receipts: any) => {
+        this.receipts = receipts;
+        this.sortedData = receipts;
+      },
+      error: (err) => (this.errMsg = err),
+    });
   }
 }
 

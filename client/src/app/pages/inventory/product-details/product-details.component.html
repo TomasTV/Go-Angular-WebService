@@ -2,30 +2,30 @@
     <div class='card-header title'>
         {{pageTitle}}
     </div>
-    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="productFg">
-        <!-- <fieldset class="product-details-form">
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="$any(productFg)">
+        <fieldset class="product-details-form">
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="productName" required matInput type="text" name="productName" id="productName"
+                <input [formControl]="$any(productName)" required matInput type="text" name="productName" id="productName"
                     (focus)="focusFunction()" placeholder="Product Name">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="manufacturer" required matInput type="text" name="manufacturer" id="manufacturer"
+                <input [formControl]="$any(manufacturer)" required matInput type="text" name="manufacturer" id="manufacturer"
                     (focus)="focusFunction()" placeholder="Manufacturer">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="sku" required matInput type="text" name="sku" id="sku" (focus)="focusFunction()"
+                <input [formControl]="$any(sku)" required matInput type="text" name="sku" id="sku" (focus)="focusFunction()"
                     placeholder="SKU">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="upc" required matInput type="text" name="UPC" id="upc" (focus)="focusFunction()"
+                <input [formControl]="$any(upc)" required matInput type="text" name="UPC" id="upc" (focus)="focusFunction()"
                     placeholder="upc">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="pricePerUnit" required matInput type="text" name="pricePerUnit" id="pricePerUnit"
-                    (blur)="formatCurrency($event)" (focus)="focusFunction()" placeholder="Unit Price">
+                <input [formControl]="$any(pricePerUnit)" required matInput type="text" name="pricePerUnit" id="pricePerUnit"
+                    (blur)="formatCurrency($any($event))" (focus)="focusFunction()" placeholder="Unit Price">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="quantityOnHand" required matInput type="number" name="quantityOnHand"
+                <input [formControl]="$any(quantityOnHand)" required matInput type="number" name="quantityOnHand"
                     id="quantityOnHand" (focus)="focusFunction()" placeholder="Quantity On Hand">
             </mat-form-field>
             <div class="button-bar">
@@ -36,7 +36,7 @@
                     Delete</button>
             </div>
 
-        </fieldset> -->
+        </fieldset>
     </form>
 
 </div>

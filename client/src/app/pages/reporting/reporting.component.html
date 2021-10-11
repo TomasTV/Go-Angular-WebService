@@ -2,18 +2,18 @@
     <div class='card-header title'>
         {{pageTitle}}
     </div>
-    <!-- <form novalidate (ngSubmit)="onSubmit(reportParamsFg)" [formGroup]="reportParamsFg">
+    <form novalidate (ngSubmit)="onSubmit(reportParamsFg)" [formGroup]="reportParamsFg">
         <fieldset class="reporting-params-form">
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="productFilter" matInput type="text" name="productFilter" id="productFilter"
+                <input [formControl]="$any(productFilter)" matInput type="text" name="productFilter" id="productFilter"
                     (focus)="focusFunction()" placeholder="Product Filter">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="manufacturerFilter" matInput type="text" name="manufacturerFilter"
+                <input [formControl]="$any(manufacturerFilter)" matInput type="text" name="manufacturerFilter"
                     id="manufacturerFilter" (focus)="focusFunction()" placeholder="Manufacturer Filter">
             </mat-form-field>
             <mat-form-field class="full-width mat-icon-left">
-                <input [formControl]="skuFilter" matInput type="text" name="skuFilter" id="skuFilter"
+                <input [formControl]="$any(skuFilter)" matInput type="text" name="skuFilter" id="skuFilter"
                     (focus)="focusFunction()" placeholder="SKU Filter">
             </mat-form-field>
 
@@ -24,5 +24,5 @@
             </div>
 
         </fieldset>
-    </form> -->
+    </form>
 </div>

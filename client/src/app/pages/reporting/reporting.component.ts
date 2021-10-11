@@ -66,7 +66,7 @@ export class ReportingComponent implements OnInit {
     this.reportFilters = this.generateReportFilterFromForm();
     this.productsService.retrieveProductReport(this.reportFilters);
     console.log(this.reportFilters);
-    this.openSnackBar('success', 'null');
+    this.openSnackBar('success', 'Close');
     // this.router.navigate(['/']);
   }
 
